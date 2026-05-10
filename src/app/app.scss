@@ -1,0 +1,50 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #00b4d8; // El azul de tu imagen
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    flex: 1;
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.right-nav {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 10px;
+
+    a {
+        text-decoration: none;
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 10px;
+        background: white;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &.active-link {
+            background-color: #00b4d8;
+            color: white;
+        }
+    }
+}
