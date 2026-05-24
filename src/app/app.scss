@@ -1,50 +1,285 @@
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #00b4d8;
+
+
+    --background-color: #f0f2f5;
+    --transparent-color: transparent;
+
+    --icons-color: #B5B6B7;
+    --titles-color: #222;
+    --subtitles-color: #888;
+    --text-color: #555;
+}
+
 .layout {
-    display: flex;
-    height: 100vh;
-    background-color: #f0f2f5;
-    font-family: sans-serif;
-}
+    position: relative;
+    min-width: 1290px;
+    width: 75%;
+    height: 80vh;
+    min-width: 80vh;
+    margin: 10vh auto;
 
-.sidebar {
-    width: 300px;
-    background-color: #00b4d8; // El azul de tu imagen
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    display: grid;
+    grid-template-areas: "aside content right-nav";
+    grid-template-columns: 30% 70% 60px;
 
-.content {
-    flex: 1;
-    background-color: white;
-    margin: 20px;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    /* Sombra detras del layout */
+    border-radius: 4rem;
+    box-shadow: 0 0 100px -5px rgba(0, 0, 0, 0.25);
 
-.right-nav {
-    width: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding-right: 10px;
+    /* Barra lateral azul*/
+    .layout__aside {
+        grid-area: aside;
 
-    a {
-        text-decoration: none;
-        font-size: 24px;
-        padding: 10px;
-        border-radius: 10px;
-        background: white;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4rem 0 0 4rem;
+        overflow: auto;
+        overflow-x: hidden;
 
-        &.active-link {
-            background-color: #00b4d8;
-            color: white;
+        .aside__user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            min-height: 100%;
+            min-width: 30rem;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+
+            .user-info__general {
+
+                .user-info__container-image {
+                    position: relative;
+                    display: inline-block;
+                    width: 18rem;
+                    margin-top: 7rem;
+
+                    // CAMBIO 1: Eliminamos el z-index: 1 de aquí y usamos isolation
+                    isolation: isolate;
+
+                    .user-info__image {
+                        width: 100%;
+                        background-color: var(--primary-color);
+                        border: 3px solid var(--primary-color);
+                        border-radius: 20rem;
+
+                        // CAMBIO 2: Le damos z-index a la imagen para que tape al after, 
+                        // pero manteniéndose ambos por encima del fondo azul.
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+
+                        // CAMBIO 3: Desplázalo un poco hacia afuera (valores negativos) 
+                        // para que sobresalga y haga el efecto de sombra decorativa.
+                        top: 10px;
+                        left: 10px;
+                        width: 100%;
+                        height: 100%;
+
+                        // CAMBIO 4: Cambiamos a z-index: 1 (queda detrás de la foto, pero sobre el azul)
+                        z-index: 1;
+
+                        // CAMBIO 5: Gradiente moderno estándar (con color gris o blanco según prefieras)
+                        background-image: repeating-radial-gradient(circle, #fff, #fff 1px, transparent 0px, transparent 100%);
+                        background-size: 0.6rem 0.6rem;
+                        opacity: 0.4;
+                        border-radius: 30rem;
+                    }
+                }
+
+                .user-info__name {
+                    margin-top: 2.6rem;
+                    font-size: 3.2rem;
+                    font-weight: bold;
+                    color: var(--primary-color);
+
+                }
+
+                .user-info__job {
+                    font-size: 1.7rem;
+                    font-weight: 200;
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        .user-info__links {
+            margin-bottom: 3.6rem;
+
+            .links__social {
+                margin-top: 2rem;
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+
+                .social__option {
+                    height: 3rem;
+                    width: 3rem;
+                    font-size: 1.8rem;
+                    line-height: 3.2rem;
+                    opacity: 0.9;
+                    border-radius: 3rem;
+                    transition: all 300ms linear;
+
+                    &:hover {
+                        opacity: 1;
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            }
+        }
+
+        .user-info__cv {
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+
+            .cv-btn {
+                padding: 3rem;
+                padding-top: 1.3rem;
+                padding-bottom: 1.3rem;
+                border: 2px solid var(--primary-color);
+                border-radius: 3.2rem;
+                color: var(--primary-color);
+                box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.22);
+                transition: all 300ms ease-in-out;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    color: var(--secondary-color);
+                }
+            }
+        }
+
+        .user-info__footer {
+            position: absolute;
+            bottom: 4rem;
+            font-size: 1.2rem;
         }
     }
+
+
+    .layout__menu {
+        background-color: var(--transparent-color);
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -105px;
+        min-height: 11rem;
+
+        .menu__list {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+            min-height: 32rem;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, 0.15);
+            border-radius: 5rem;
+
+            .menu__option {
+
+                display: block;
+                width: 100%;
+                text-align: center;
+
+                .menu__link {
+
+
+                    .menu__icon {
+                        color: var(--icons-color);
+                        font-size: 2.8rem;
+                        transition: all 300ms ease-in-out;
+
+                        &:hover {
+                            color: var(--secondary-color);
+                        }
+                    }
+
+                    .menu__overlay {
+                        position: absolute;
+                        right: 0;
+                        margin-top: -3rem;
+                        display: block;
+                        opacity: 0;
+                        padding: 0.5rem 1rem;
+                        color: var(--primary-color);
+                        background-color: var(--secondary-color);
+                        white-space: nowrap;
+                        transition: all 300ms ease-in-out;
+
+                        &:hover {
+                            opacity: 1;
+                            right: 100%;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    /* Contenedor principal*/
+    .layout__content {
+        grid-area: content;
+        height: 100%;
+        min-width: 100%;
+        background-color: var(--secondary-color);
+        border-radius: 0 10rem 10rem 0;
+
+
+    }
 }
+
+
+
+// .sidebar {
+//     width: 300px;
+//     background-color: var(--primary-color); // El azul de tu imagen
+//     color: var(--text-color);
+//     padding: 20px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .layout__content {
+//     flex: 1;
+//     background-color: var(--background-color);
+//     margin: 20px;
+//     border-radius: 20px;
+//     padding: 40px;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+// }
+
+// .right-nav {
+//     width: 60px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     gap: 20px;
+//     padding-right: 10px;
+
+//     a {
+//         text-decoration: none;
+//         font-size: 24px;
+//         padding: 10px;
+//         border-radius: 10px;
+//         background: var(--background-color);
+//         text-align: center;
+//         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+//         &.active-link {
+//             background-color: var(--secondary-color);
+//             color: var(--primary-color);
+//         }
+//     }
+// }

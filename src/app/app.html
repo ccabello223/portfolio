@@ -1,25 +1,91 @@
 <div class="layout">
 
-  <!-- SIDEBAR (Panel Azul en tu diseño) -->
-  <aside class="sidebar">
-    <div class="profile">
-      <h2>Carlos Cabello</h2>
-      <p>Full-stack Developer</p>
-    </div>
-    <button class="cv-btn">Descargar CV</button>
+  <!-- <app-sidebar></app-sidebar> -->
+  <aside class="layout__aside">
+    <section class="aside__user-info">
+      <!-- Información general usuario -->
+      <div class="user-info__general">
+        <div class="user-info__container-image">
+          <img src="assets/img/default-user.jpg" alt="Foto de perfil de Carlos Cabello" class="user-info__image">
+        </div>
+
+        <h2 class="user-info__name">Carlos Cabello</h2>
+        <p class="user-info__job">Full-stack Developer</p>
+      </div>
+
+
+      <!-- Menú de navegación -->
+      <nav class="layout__menu">
+        <ul class="menu__list">
+          <li class="menu__option">
+            <a class="menu__link" routerLink="/" routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact: true}"><i class="menu__icon fa-solid fa-house"></i>
+              <span class="menu__overlay">Home</span>
+            </a>
+          </li>
+          <li class="menu__option">
+            <a class="menu__link" routerLink="/sobre-mi" routerLinkActive="active-link"><i
+                class="menu__icon fa-solid fa-user"></i> <span class="menu__overlay">Sobre mí</span>
+            </a>
+          </li>
+          <li class="menu__option">
+            <a class="menu__link" routerLink="/estudios" routerLinkActive="active-link"><i
+                class="menu__icon fa-solid fa-briefcase"></i> <span class="menu__overlay">Estudios</span>
+            </a>
+          </li>
+          <li class="menu__option">
+            <a class="menu__link" routerLink="/proyectos" routerLinkActive="active-link"><i
+                class="menu__icon fa-solid fa-briefcase"></i> <span class="menu__overlay">Proyectos</span>
+            </a>
+          </li>
+          <li class="menu__option">
+            <a class="menu__link" routerLink="/contacto" routerLinkActive="active-link"><i
+                class="menu__icon fa-solid fa-envelope"></i> <span class="menu__overlay">Contacto</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- links a redes sociales -->
+      <div class="user-info__links">
+        <ul class="links__social">
+          <li class="social__option">
+            <a href="https://www.linkedin.com/in/carlos-cabello-fernandez/" target="_blank" class="social__link">
+              <i class="social__icon fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+
+          <li class="social__option">
+            <a href="https://github.com/carlos-cabello-fernandez" target="_blank" class="social__link">
+              <i class="social__icon fa-brands fa-github"></i>
+            </a>
+          </li>
+
+          <li class="social__option">
+            <a href="https://www.instagram.com/carlos-cabello-fernandez/" target="_blank" class="social__link">
+              <i class="social__icon fa-brands fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Boton del curriculum -->
+
+      <div class="user-info__cv">
+        <a href="assets/CV_Carlos_Cabello.pdf" download class="cv-btn">Descargar CV</a>
+      </div>
+
+      <!-- Pie de pagina -->
+      <footer class="user-info__footer">
+        &copy; 2026 Carlos Cabello. Todos los derechos reservados.
+      </footer>
+
+    </section>
   </aside>
 
   <!-- CONTENIDO DINÁMICO -->
-  <main class="content">
+  <main class="layout__content">
     <router-outlet></router-outlet>
   </main>
-
-  <!-- NAVEGADOR DERECHO (Iconos) -->
-  <nav class="right-nav">
-    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">🏠</a>
-    <a routerLink="/sobre-mi" routerLinkActive="active-link">👤</a>
-    <a routerLink="/proyectos" routerLinkActive="active-link">💼</a>
-    <a routerLink="/contacto" routerLinkActive="active-link">✉️</a>
-  </nav>
 
 </div>
