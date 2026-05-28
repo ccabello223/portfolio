@@ -1,34 +1,21 @@
-:root {
-    --primary-color: #FFFFFF;
-    --secondary-color: #00b4d8;
-
-
-    --background-color: #f0f2f5;
-    --transparent-color: transparent;
-
-    --icons-color: #B5B6B7;
-    --titles-color: #222;
-    --subtitles-color: #888;
-    --text-color: #555;
-}
-
-.content__page {
-    min-height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 3.2rem;
+// home.component.scss
+:host {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
+}
 
-    .page__title {
-        font-size: 6rem;
-        margin-bottom: 1rem;
-    }
+.page__title {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
 
-    .page__description {
-        font-size: 2.5rem;
-        font-weight: lighter;
-        color: var(--subtitles-color);
-    }
+.page__description {
+    font-size: 2.5rem;
+    font-weight: lighter;
+    color: var(--subtitles-color);
 }

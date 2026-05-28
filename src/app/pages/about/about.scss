@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #00b4d8;
+
+    --background-color: #f0f2f5;
+    --transparent-color: transparent;
+
+    --icons-color: #b5b6b7;
+    --titles-color: #222;
+    --subtitles-color: #888;
+    --text-color: #555;
+}
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+=========================== */
+
+.content__about {
+    width: 100%;
+    max-width: 100%;
+    /* Asegura que no exceda el ancho */
+    padding: 6rem;
+    overflow-x: hidden;
+    /* 🔥 Evita scroll horizontal */
+    box-sizing: border-box;
+    /* Incluye padding en el ancho total */
+}
+
+/* ===========================
+   TITULOS
+=========================== */
+
+.about__title,
+.services__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--titles-color);
+    margin-bottom: 3rem;
+}
+
+.services__title {
+    margin-top: 5rem;
+}
+
+.about__title span,
+.services__title span {
+    color: var(--secondary-color);
+}
+
+/* ===========================
+   INFORMACIÓN PERSONAL
+=========================== */
+
+.about__personal-info {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+    gap: 4rem;
+    max-width: 100%;
+}
+
+.personal-info__bio {
+    width: 100%;
+    min-width: 0;
+    /* 🔥 Permite que el contenido se reduzca */
+}
+
+.personal-info__description {
+    font-size: 1.8rem;
+    line-height: 1.9;
+    color: var(--text-color);
+    text-align: justify;
+    word-wrap: break-word;
+    /* 🔥 Evita que palabras largas causen scroll */
+}
+
+/* ===========================
+   DATOS PERSONALES
+=========================== */
+
+.personal-info__data {
+    width: 100%;
+    min-width: 0;
+
+}
+
+.personal-info__data ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.personal-info__data li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.personal-info__title {
+    color: var(--secondary-color);
+    font-size: 1.7rem;
+    font-weight: 700;
+    min-width: 8rem;
+    /* Reducido de 10rem para más flexibilidad */
+}
+
+.personal-info__value {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+    /* 🔥 Permite que el valor ocupe el espacio restante */
+}
+
+/* ===========================
+   SERVICIOS
+=========================== */
+
+.about-services {
+    width: 100%;
+    max-width: 100%;
+}
+
+.services__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 100%;
+}
+
+.service {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    min-width: 0;
+    /* 🔥 Permite que el contenido se reduzca */
+}
+
+.icon {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    min-width: 5rem;
+    flex-shrink: 0;
+    /* 🔥 Evita que el icono se encoja */
+}
+
+.service__content {
+    min-width: 0;
+    /* 🔥 Permite que el texto se ajuste */
+    flex: 1;
+}
+
+.service__title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--titles-color);
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.service__description {
+    word-wrap: break-word;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* ===========================
+   SCROLL PERSONALIZADO
+=========================== */
+
+/* El scroll se aplica al content_page, no al content__about */
+.content_page::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content_page::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.content_page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 1200px) {
+    .about__personal-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .content__about {
+        padding: 3rem;
+    }
+
+    .services__container {
+        grid-template-columns: 1fr;
+    }
+
+    .about__title,
+    .services__title {
+        font-size: 3.2rem;
+    }
+
+    .personal-info__description {
+        font-size: 1.6rem;
+    }
+
+    .service__title {
+        font-size: 2rem;
+    }
+
+    .icon {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,314 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #00b4d8;
+    --background-color: #f0f2f5;
+    --titles-color: #222;
+    --text-color: #555;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+=========================== */
+
+.content__studies {
+    width: 100%;
+    max-width: 100%;
+    padding: 4rem 6rem;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   PROFILE HEADER
+=========================== */
+
+.studies__profile-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 2rem;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.profile__name {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--titles-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile__title {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.profile__description {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+/* ===========================
+   SECCIONES GENERALES
+=========================== */
+
+.studies__section {
+    margin-bottom: 5rem;
+}
+
+.section__icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.section__header {
+    margin-bottom: 3rem;
+}
+
+.section__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--titles-color);
+    margin-bottom: 1rem;
+}
+
+.section__title span {
+    color: var(--secondary-color);
+}
+
+.title__underline {
+    width: 60px;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* ===========================
+   EXPERIENCIA
+=========================== */
+
+.experience__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.experience__item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience__item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experience__period {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 2rem;
+    text-align: center;
+    height: fit-content;
+}
+
+.experience__company {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--titles-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience__position {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.experience__description {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+/* ===========================
+   ENTRENAMIENTO
+=========================== */
+
+.training__container {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.training__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.training__item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.training__item:hover {
+    background: rgba(0, 180, 216, 0.1);
+    transform: translateX(5px);
+}
+
+.training__item i {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    min-width: 2rem;
+}
+
+.training__item span {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* ===========================
+   COMPETENCIAS
+=========================== */
+
+.competencies__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.competency__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.competency__item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.competency__icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    min-width: 3.5rem;
+}
+
+.competency__content {
+    flex: 1;
+}
+
+.competency__title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--titles-color);
+    margin-bottom: 0.8rem;
+}
+
+.competency__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+    .content__studies {
+        padding: 3rem;
+    }
+
+    .experience__item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .experience__period {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 768px) {
+    .content__studies {
+        padding: 2rem;
+    }
+
+    .studies__profile-header {
+        padding: 2rem;
+    }
+
+    .profile__name {
+        font-size: 2.6rem;
+    }
+
+    .profile__title {
+        font-size: 1.6rem;
+    }
+
+    .section__title {
+        font-size: 2.4rem;
+    }
+
+    .training__list {
+        grid-template-columns: 1fr;
+    }
+
+    .competencies__container {
+        grid-template-columns: 1fr;
+    }
+
+    .training__item span {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content__studies {
+        padding: 1.5rem;
+    }
+
+    .profile__description {
+        font-size: 1.4rem;
+    }
+
+    .experience__description {
+        font-size: 1.4rem;
+    }
+
+    .competency__title {
+        font-size: 1.5rem;
+    }
+}

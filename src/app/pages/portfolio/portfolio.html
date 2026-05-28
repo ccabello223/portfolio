@@ -1,2 +1,151 @@
-<p>portfolio works!</p>
-<h2><i class="fa-regular fa-user"></i></h2>
+<section class="content__projects">
+    <!-- Header de Proyectos -->
+    <header class="projects__header">
+        <h2 class="projects__title">
+            Mis <span>Proyectos</span>
+        </h2>
+        <p class="projects__subtitle">
+            Una selección de mis trabajos más recientes y destacados
+        </p>
+    </header>
+
+    <!-- Grid de Proyectos -->
+    <div class="projects__grid">
+
+        <!-- Proyecto 1 -->
+        <article class="project__card">
+            <div class="project__gallery">
+                <div class="gallery__main">
+                    <img [src]="projects[0].images[projects[0].currentImage]" [alt]="projects[0].title"
+                        (click)="openLightbox(0, projects[0].currentImage)">
+                    <button class="gallery__nav gallery__nav--prev" (click)="prevImage(0); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery__nav gallery__nav--next" (click)="nextImage(0); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="gallery__counter">
+                        {{ projects[0].currentImage + 1 }} / {{ projects[0].images.length }}
+                    </div>
+                </div>
+                <div class="gallery__thumbnails">
+                    @for (img of projects[0].images; track $index) {
+                    <div class="thumbnail" [class.active]="$index === projects[0].currentImage"
+                        (click)="setCurrentImage(0, $index)">
+                        <img [src]="img" [alt]="projects[0].title + ' - Imagen ' + ($index + 1)">
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="project__content">
+                <h3 class="project__title">{{ projects[0].title }}</h3>
+                <p class="project__description">
+                    {{ projects[0].description }}
+                </p>
+                <div class="project__techs">
+                    @for (tech of projects[0].technologies; track tech) {
+                    <span class="tech__badge">{{ tech }}</span>
+                    }
+                </div>
+            </div>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="project__card">
+            <div class="project__gallery">
+                <div class="gallery__main">
+                    <img [src]="projects[1].images[projects[1].currentImage]" [alt]="projects[1].title"
+                        (click)="openLightbox(1, projects[1].currentImage)">
+                    <button class="gallery__nav gallery__nav--prev" (click)="prevImage(1); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery__nav gallery__nav--next" (click)="nextImage(1); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="gallery__counter">
+                        {{ projects[1].currentImage + 1 }} / {{ projects[1].images.length }}
+                    </div>
+                </div>
+                <div class="gallery__thumbnails">
+                    @for (img of projects[0].images; track $index) {
+                    <div class="thumbnail" [class.active]="$index === projects[0].currentImage"
+                        (click)="setCurrentImage(0, $index)">
+                        <img [src]="img" [alt]="projects[0].title + ' - Imagen ' + ($index + 1)">
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="project__content">
+                <h3 class="project__title">{{ projects[1].title }}</h3>
+                <p class="project__description">
+                    {{ projects[1].description }}
+                </p>
+                <div class="project__techs">
+                    @for (tech of projects[0].technologies; track tech) {
+                    <span class="tech__badge">
+                        {{ tech }}
+                    </span>
+                    }
+                </div>
+            </div>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="project__card">
+            <div class="project__gallery">
+                <div class="gallery__main">
+                    <img [src]="projects[2].images[projects[2].currentImage]" [alt]="projects[2].title"
+                        (click)="openLightbox(2, projects[2].currentImage)">
+                    <button class="gallery__nav gallery__nav--prev" (click)="prevImage(2); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery__nav gallery__nav--next" (click)="nextImage(2); $event.stopPropagation()">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="gallery__counter">
+                        {{ projects[2].currentImage + 1 }} / {{ projects[2].images.length }}
+                    </div>
+                </div>
+                <div class="gallery__thumbnails">
+                    @for (img of projects[2].images; track $index) {
+                    <div class="thumbnail" [class.active]="$index === projects[2].currentImage"
+                        (click)="setCurrentImage(2, $index)">
+                        <img [src]="img" [alt]="projects[2].title + ' - Imagen ' + ($index + 1)">
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="project__content">
+                <h3 class="project__title">{{ projects[2].title }}</h3>
+                <p class="project__description">
+                    {{ projects[2].description }}
+                </p>
+                <div class="project__techs">
+                    @for (tech of projects[2].technologies; track tech) {
+                    <span class="tech__badge">
+                        {{ tech }}
+                    </span>
+                    }
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" [class.active]="lightboxVisible" (click)="closeLightbox()">
+        <button class="lightbox__close" (click)="closeLightbox()">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <button class="lightbox__nav lightbox__nav--prev" (click)="lightboxPrev(); $event.stopPropagation()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <img [src]="lightboxImage" alt="Imagen ampliada" (click)="$event.stopPropagation()">
+        <button class="lightbox__nav lightbox__nav--next" (click)="lightboxNext(); $event.stopPropagation()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="lightbox__counter">
+            {{ lightboxProjectIndex !== null && lightboxImageIndex !== null ?
+            (lightboxImageIndex + 1) + ' / ' + projects[lightboxProjectIndex]?.images!.length : '' }}
+        </div>
+    </div>
+</section>
